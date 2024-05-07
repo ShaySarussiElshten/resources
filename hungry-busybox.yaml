@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: insufficient-resources-pod
+spec:
+  containers:
+  - name: hungry-busybox-container
+    image: busybox
+    command: ["dd", "if=/dev/zero", "of=/dev/null"]
+    resources:
+      requests:
+        cpu: "7"  # בקשה ל-7 מעבדים, יותר ממה שזמין
+        memory: "500Mi"  # בקשה ל-500 מגה-בייט זיכרון
+
+
+
+
+
+
